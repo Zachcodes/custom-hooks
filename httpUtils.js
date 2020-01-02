@@ -26,7 +26,7 @@ export const useFetchData = ({
           data: payload ? payload : null
         });
         setRes({ data, isLoading: false, error: null, called: true });
-        if (cbOpt.cb) cbOpt.cb(...cbOpt.cbArgs);
+        if (cbOpt.cb) cbOpt.cb.apply(null, cbOpt.cbArgs);
       } catch (error) {
         setRes({ data: null, isLoading: false, error, called: true });
       }
